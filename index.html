@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fenerbahçe SK - Şanlı Fener</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #FFD700, #003366); /* Sarı-mavi gradyan */
+            color: #003366;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #003366;
+            color: #FFD700;
+            text-align: center;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        header img {
+            width: 150px; /* Daha büyük logo */
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            border: 3px solid #FFD700; /* Sarı çerçeve */
+        }
+        nav {
+            background-color: #FFD700;
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: #003366;
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #FFD700;
+            background-color: #003366;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .haber-slider {
+            overflow: hidden;
+            height: 200px;
+            position: relative;
+        }
+        .haber-slider div {
+            position: absolute;
+            width: 100%;
+            opacity: 0;
+            animation: slide 16s infinite; /* Toplam süre artırıldı, delay için */
+            transition: opacity 1s ease-in-out; /* Yumuşak geçiş */
+        }
+        .haber-slider div:nth-child(1) { animation-delay: 0s; }
+        .haber-slider div:nth-child(2) { animation-delay: 4s; }
+        .haber-slider div:nth-child(3) { animation-delay: 8s; }
+        .haber-slider div:nth-child(4) { animation-delay: 12s; }
+        @keyframes slide {
+            0%, 20% { opacity: 1; transform: translateY(0); }
+            25% { opacity: 0; transform: translateY(-100%); }
+            100% { opacity: 0; transform: translateY(-100%); }
+        }
+        .galeri-slider {
+            overflow: hidden;
+            height: 300px;
+            position: relative;
+        }
+        .galeri-slider img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            animation: galeriSlide 12s infinite; /* 3 resim için 12 saniye */
+            transition: opacity 1s ease-in-out;
+        }
+        .galeri-slider img:nth-child(1) { animation-delay: 0s; }
+        .galeri-slider img:nth-child(2) { animation-delay: 4s; }
+        .galeri-slider img:nth-child(3) { animation-delay: 8s; }
+        @keyframes galeriSlide {
+            0%, 25% { opacity: 1; }
+            33% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+        .yorumlar-content {
+            display: none; /* Başlangıçta gizli */
+            margin-top: 10px;
+        }
+        .yorumlar-toggle {
+            cursor: pointer;
+            color: #003366;
+            font-weight: bold;
+        }
+        .yorumlar-toggle:hover {
+            color: #FFD700;
+        }
+        footer {
+            background-color: #003366;
+            color: #FFD700;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="images/indir.jpg" alt="Fenerbahçe Logo">
+        <h1>Şanlı Fenerbahçe</h1>
+        <p>Türkiye'nin En Büyük Kulübü</p>
+    </header>
+    <nav>
+        <a href="#haberler">Haberler</a>
+        <a href="#takim">Takım</a>
+        <a href="#maclar">Maçlar</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#yorumlar">Taraftar Yorumları</a>
+    </nav>
+    <div class="container">
+        <section id="haberler" class="section">
+            <h2>Son Haberler</h2>
+            <div class="haber-slider">
+                <div>
+                    <h3>Fenerbahçe Şampiyonluk Yolunda!</h3>
+                    <p>Ligde üst üste galibiyetler... Detaylar resmi sitede.</p>
+                </div>
+                <div>
+                    <h3>Yeni Teknik Direktör Açıklaması</h3>
+                    <p>Takım motivasyonu yüksek, taraftarlar destekliyor.</p>
+                </div>
+                <div>
+                    <h3>Transfer Dönemi Başladı</h3>
+                    <p>Yeni yıldızlar geliyor!</p>
+                </div>
+                <div>
+                    <h3>Fan Etkinlikleri</h3>
+                    <p>Stadyumda unutulmaz anlar.</p>
+                </div>
+            </div>
+        </section>
+        <section id="takim" class="section">
+            <h2>Takım Kadrosu</h2>
+            <ul>
+                <li>Kaleci: Altay Bayındır</li>
+                <li>Defans: Ferdi Kadıoğlu, Serdar Aziz</li>
+                <li>Orta Saha: İrfan Can Kahveci, Arda Güler</li>
+                <li>Forvet: Enner Valencia, Michy Batshuayi</li>
+            </ul>
+        </section>
+        <section id="maclar" class="section">
+            <h2>Yaklaşan Maçlar</h2>
+            <table style="width:100%; border-collapse: collapse;">
+                <tr style="background-color: #FFD700;">
+                    <th style="padding: 10px; border: 1px solid #003366;">Tarih</th>
+                    <th style="padding: 10px; border: 1px solid #003366;">Rakip</th>
+                    <th style="padding: 10px; border: 1px solid #003366;">Yer</th>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #003366;">20 Ekim</td>
+                    <td style="padding: 10px; border: 1px solid #003366;">Galatasaray</td>
+                    <td style="padding: 10px; border: 1px solid #003366;">Şükrü Saraçoğlu</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #003366;">27 Ekim</td>
+                    <td style="padding: 10px; border: 1px solid #003366;">Beşiktaş</td>
+                    <td style="padding: 10px; border: 1px solid #003366;">Tüpraş Stadyumu</td>
+                </tr>
+            </table>
+        </section>
+        <section id="galeri" class="section">
+            <h2>Fotoğraf Galerisi</h2>
+            <div class="galeri-slider">
+                <img src="images/attachment.jpg" alt="Stadyum">
+                <img src="images/404142.jpg" alt="Takım">
+                <img src="images/87047f13-a22d-4512-b4df-4e1c7108c676.jpg" alt="Fanlar">
+            </div>
+        </section>
+        <section id="yorumlar" class="section" style="grid-column: span 2;">
+            <h2 class="yorumlar-toggle" onclick="toggleYorumlar()">Taraftar Yorumları</h2>
+            <div class="yorumlar-content" id="yorumlarContent">
+                <div style="background-color: #f9f9f9; padding: 10px; margin: 10px 0; border-left: 5px solid #FFD700;">
+                    <p><strong>A**** S****:</strong> Fenerbahçe her zaman kazanacak! Şanlı Fener!</p>
+                </div>
+                <div style="background-color: #f9f9f9; padding: 10px; margin: 10px 0; border-left: 5px solid #FFD700;">
+                    <p><strong>E**** H*****:</strong> Yeni sezon harika başladı, umarım şampiyon oluruz.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2023 Fenerbahçe Spor Kulübü.Resmi site Inky Was Here!</p>
+    </footer>
+
+    <script>
+        function toggleYorumlar() {
+            var content = document.getElementById('yorumlarContent');
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+            } else {
+                content.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
